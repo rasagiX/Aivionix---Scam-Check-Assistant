@@ -4,6 +4,7 @@ import Section2 from './component/section2/section2.jsx'
 import Section3 from './component/section3/section3.jsx'
 import Section4 from './component/section4/section4.jsx'
 import Section5 from './component/section5/section5.jsx'
+import Section6 from './component/section6/section6.jsx'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Section3/>
       <Section4/>
       <Section5/>
+      <Section6/>
     </div>
   )
 }
