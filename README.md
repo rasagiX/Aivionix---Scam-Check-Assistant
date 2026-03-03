@@ -1,1 +1,0 @@
-# Aivionix---Scam-Check-Assistant
