@@ -6,6 +6,7 @@ import Section4 from './component/section4/section4.jsx'
 import Section5 from './component/section5/section5.jsx'
 import Section6 from './component/section6/section6.jsx'
 import Section7 from './component/section7/section7.jsx'
+import Section8 from './component/section8/section8.jsx'
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Section5/>
       <Section6/>
       <Section7/>
+      <Section8/>
     </div>
   )
 }
