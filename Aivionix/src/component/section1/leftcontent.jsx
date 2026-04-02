@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function LeftContent() {
   return (
     <div className="space-y-6">
@@ -11,13 +13,17 @@ export default function LeftContent() {
       </p>
 
       <div className="flex gap-4 pt-2">
-        <button className="bg-white text-black px-6 py-3 rounded-xl">
-          Check a Message
-        </button>
 
-        <button className="border border-white/20 px-6 py-3 rounded-xl">
-         Learn More
-        </button>
+       <Link to="/chat">
+        <button className="bg-white text-black px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
+         Check a Message
+          </button>
+          </Link>
+
+          <button className="border border-white/20 px-6 py-3 rounded-xl transition-all duration-200 hover:border-white/50 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
+          Learn More
+          </button>
+
       </div>
 
       <p className="text-xs text-white/50 pt-2">

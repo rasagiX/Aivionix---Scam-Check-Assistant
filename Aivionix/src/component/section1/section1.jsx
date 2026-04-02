@@ -4,7 +4,7 @@ import AnimatedSquare from "./animatedsquare";
 
 export default function Section1() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-black text-white">
 
       <Navbar />
 

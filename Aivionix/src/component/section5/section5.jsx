@@ -42,7 +42,7 @@ const Section5 = () => {
   ];
 
   return (
-    <section className="relative py-28 bg-gradient-to-br from-[#0a0a23] to-[#2b0a57] overflow-hidden">
+    <section className="relative py-28 bg-gradient-to-br from-slate-950 via-indigo-950 to-black overflow-hidden">
 
       {/* Purple Glow */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">

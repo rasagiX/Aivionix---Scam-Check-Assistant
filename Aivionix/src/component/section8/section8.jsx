@@ -8,7 +8,7 @@ import {
 
 export default function Section8() {
   return (
-    <section className="relative w-full bg-gradient-to-br from-[#070b1a] via-[#0f172a] to-[#2a0f3f] py-24 px-6">
+    <section className="relative w-full bg-gradient-to-br from-slate-950 via-indigo-950 to-black py-24 px-6">
       
       <div className="max-w-7xl mx-auto">
 
