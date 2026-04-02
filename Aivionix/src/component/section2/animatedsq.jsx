@@ -7,12 +7,11 @@ const scamLabels = [
   "Phishing Emails",
 ];
 
-
 export default function AnimatedSq() {
-  const size = 420;              // whole orbit area
-  const ringSize = size - 80;    // visible circle size
-  const circleRadius = ringSize / 2;      // radius for dots
-  const textRadius = circleRadius + 26;   // text slightly outside the circle
+  const size = 420;
+  const ringSize = size - 80;
+  const circleRadius = ringSize / 2;
+  const textRadius = circleRadius + 26;
 
   return (
     <div
@@ -27,7 +26,7 @@ export default function AnimatedSq() {
 
       {/* dots + labels around circle */}
       {scamLabels.map((label, i) => {
-        const angle = (2 * Math.PI * i) / scamLabels.length; // 0..2π
+        const angle = (2 * Math.PI * i) / scamLabels.length;
         const center = size / 2;
 
         // dot exactly on circle
@@ -39,8 +38,8 @@ export default function AnimatedSq() {
         let textY = center + textRadius * Math.sin(angle);
 
         // move left/right texts a bit down
-        if (label === "Job Offer Scams" || label === "Bank / KYC Alerts") {
-          textY += 20; // increase for more space under the dot
+        if (label === "Job Offer Tasks" || label === "Bank / KYC Alerts") {
+          textY += 20;
         }
 
         return (
@@ -52,10 +51,12 @@ export default function AnimatedSq() {
             />
 
             {/* label */}
-            <div className="absolute text-xs text-white/80 font-medium whitespace-nowrap -translate-x-1/2 -translate-y-1/2 fade-in"style={{left: textX,top: textY,animationDelay: `${i}s`,}}>
-            {label}
+            <div 
+              className="absolute text-xs text-white/80 font-medium whitespace-nowrap -translate-x-1/2 -translate-y-1/2 fade-in" 
+              style={{ left: textX, top: textY, animationDelay: `${i * 0.3}s` }}
+            >
+              {label}
             </div>
-
           </div>
         );
       })}
@@ -65,7 +66,4 @@ export default function AnimatedSq() {
     </div>
   );
 }
-
-
-
 

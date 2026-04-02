@@ -8,7 +8,7 @@ export default function AnimatedSquare() {
       <div className="absolute w-72 h-72 border border-white/10 rounded-full" />
       <div className="absolute w-96 h-96 border border-white/5 rounded-full" />
 
-    </div>2
+    </div>
   );
 }
 
