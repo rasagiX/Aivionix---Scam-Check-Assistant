@@ -1,20 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 
-import Section1 from './frontend/component/section1/section1.jsx'
-import Section2 from './frontend/component/section2/section2.jsx'
-import Section3 from './frontend/component/section3/section3.jsx'
-import Section4 from './frontend/component/section4/section4.jsx'
-import Section5 from './frontend/component/section5/section5.jsx'
+import Section1 from './component/section1/section1.jsx'
+import Section2 from './component/section2/section2.jsx'
+import Section3 from './component/section3/section3.jsx'
+import Section4 from './component/section4/section4.jsx'
+import Section5 from './component/section5/section5.jsx'
 
-import Section7 from './frontend/component/section7/section7.jsx'
-import Section8 from './frontend/component/section8/section8.jsx'
+import Section7 from './component/section7/section7.jsx'
+import Section8 from './component/section8/section8.jsx'
 
-import About from './frontend/component/pages/aboutus.jsx'
-import Login from './frontend/component/pages/login.jsx'
-import Signup from './frontend/component/pages/signup.jsx'
-import Terms from './frontend/component/pages/terms.jsx'
-import UserGuide from './frontend/component/pages/userguide.jsx'
+import About from './component/pages/aboutus.jsx'
+import Login from './component/pages/login.jsx'
+import Signup from './component/pages/signup.jsx'
+import Terms from './component/pages/terms.jsx'
+import UserGuide from './component/pages/userguide.jsx'
 import Chatbot from './chatbot.jsx'
 
 // Home landing with sections

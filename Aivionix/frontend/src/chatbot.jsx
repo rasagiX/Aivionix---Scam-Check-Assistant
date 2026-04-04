@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import Sidebar from "./frontend/component/sidebar";
+import Sidebar from "./component/sidebar";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
@@ -9,6 +9,7 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
+  const [activeTab, setActiveTab] = useState("Chat");  // Added for Sidebar
 
   const bottomRef = useRef(null);
 
@@ -131,7 +132,7 @@ export default function Chatbot() {
     <div className="h-screen w-screen flex bg-black overflow-hidden">
 
       {/* Sidebar */}
-      <Sidebar history={history} />
+      <Sidebar active={activeTab} setActive={setActiveTab} />
 
       {/* Chat Section */}
       <div className="flex-1 flex flex-col bg-gradient-to-br from-indigo-950 via-black to-indigo-900">
