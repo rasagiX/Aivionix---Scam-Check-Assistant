@@ -7,7 +7,6 @@ import pickle
 import os
 import httpx
 import base64
-import os
 
 app = FastAPI()
 
