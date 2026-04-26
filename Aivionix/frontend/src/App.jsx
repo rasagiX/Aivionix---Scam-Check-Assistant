@@ -1,52 +1,90 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Section1 from './component/section1/section1.jsx'
-import Section2 from './component/section2/section2.jsx'
-import Section3 from './component/section3/section3.jsx'
-import Section4 from './component/section4/section4.jsx'
-import Section5 from './component/section5/section5.jsx'
+// 🔐 Auth Protection
+import ProtectedRoute from "./component/pages/protectedRoute.jsx";
 
-import Section7 from './component/section7/section7.jsx'
-import Section8 from './component/section8/section8.jsx'
+// 🧭 Layout
+import Sidebar from "./component/pages/sidebar.jsx";
 
-import About from './component/pages/aboutus.jsx'
-import Login from './component/pages/login.jsx'
-import Signup from './component/pages/signup.jsx'
-import Terms from './component/pages/terms.jsx'
-import UserGuide from './component/pages/userguide.jsx'
-import Chatbot from './chatbot.jsx'
+// 🌐 Public Pages
+import About from "./component/pages/aboutus.jsx";
+import Login from "./component/pages/login.jsx";
+import Signup from "./component/pages/signup.jsx";
+import Terms from "./component/pages/terms.jsx";
+import UserGuide from "./component/pages/userguide.jsx";
 
-// Home landing with sections
-const Home = () => {
+// 🔥 App Pages (Protected)
+import Chatbot from "./chatbot.jsx";
+import Settings from "./component/pages/settings.jsx";
+import History from "./component/pages/history.jsx";
+
+// 🏠 Home Landing Page
+import Home from "./component/pages/home.jsx";
+
+// 🧠 Protected Layout (Sidebar + Page)
+const AppLayout = ({ children }) => {
   return (
-    <div>
-      <Section1/>
-      <Section2/>
-      <Section3/>
-      <Section4/>
-      <Section5/>
-      <Section7/>
-      <Section8/>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1">{children}</div>
     </div>
-  )
-}
+  );
+};
 
 function App() {
   return (
     <Router>
       <Routes>
+
+        {/* 🌐 PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
-        <Route path="/chat" element={<Chatbot />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/userguide" element={<UserGuide />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* 🔐 PROTECTED ROUTES */}
+        <Route
+          path="/chat"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <Chatbot />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <Settings />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/history"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <History />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ❌ FALLBACK */}
         <Route path="*" element={<Home />} />
+
       </Routes>
     </Router>
   );
 }
 
-export default App
+export default App;

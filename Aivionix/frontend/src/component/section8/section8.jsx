@@ -1,105 +1,162 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
+  Youtube,
   Facebook,
   Instagram,
   Twitter,
-  Youtube
+  ArrowRight,
 } from "lucide-react";
 
 export default function Section8() {
+  const navigate = useNavigate();
+
+  const scrollToSection = (id) => {
+    navigate("/");
+
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
+  };
+
+  const footerLinks = [
+    {
+      title: "Home",
+      links: [
+        { label: "Overview", id: "overview" },
+        { label: "How it works", id: "how-it-works" },
+        { label: "Message Checker", id: "message-checker" },
+        { label: "Safety Tips", id: "safety-tips" },
+      ],
+    },
+    {
+      title: "About us",
+      links: [
+        { label: "Our mission", path: "/about" },
+        { label: "How we detect risk", path: "/about" },
+        { label: "FAQ", path: "/about" },
+        { label: "Contact", path: "/about" },
+      ],
+    },
+    {
+      title: "User guide",
+      links: [
+        { label: "How to use checker", path: "/userguide" },
+        { label: "Risk levels explained", path: "/userguide" },
+        { label: "Report false negative", path: "/userguide" },
+        { label: "Privacy policy", path: "/terms" },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    { icon: Youtube, label: "YouTube" },
+    { icon: Facebook, label: "Facebook" },
+    { icon: Instagram, label: "Instagram" },
+    { icon: Twitter, label: "Twitter" },
+  ];
+
   return (
-    <section className="relative w-full bg-gradient-to-br from-slate-950 via-indigo-950 to-black py-24 px-6">
-      
-      <div className="max-w-7xl mx-auto">
+    <footer className="relative overflow-hidden bg-[#030712] px-6 py-20 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.08),transparent_24%),radial-gradient(circle_at_80%_75%,rgba(139,92,246,0.12),transparent_24%),linear-gradient(135deg,#030712_0%,#081126_42%,#020617_100%)]" />
+      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:64px_64px]" />
 
-        {/* Glass Footer Card */}
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-16 shadow-2xl shadow-purple-900/40">
-
-          <div className="grid md:grid-cols-4 gap-12">
-
-            {/* Column 1 - Brand */}
-            <div>
-              <h2 className="text-white text-xl font-semibold mb-4">
-                Aivionix
-              </h2>
-
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Aivionix helps you quickly spot risky SMS, WhatsApp messages, emails and links, so your digital life stays safe without slowing you down.
-              </p>
-
-              <button 
-                type="button"
-                className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all duration-300 px-6 py-3 rounded-full text-sm font-medium text-white mb-8 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-              >
-                Start Now →
-              </button>
-
-              <div>
-                <p className="text-gray-500 text-sm mb-3">Follow us</p>
-                <div className="flex gap-3">
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube" className="p-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition-all duration-300">
-                    <Youtube size={20} />
-                  </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2 rounded-lg hover:bg-white/10 hover:text-blue-400 transition-all duration-300">
-                    <Facebook size={20} />
-                  </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 rounded-lg hover:bg-white/10 hover:text-pink-400 transition-all duration-300">
-                    <Instagram size={20} />
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-2 rounded-lg hover:bg-white/10 hover:text-sky-400 transition-all duration-300">
-                    <Twitter size={20} />
-                  </a>
-                </div>
+      <div className="relative z-10 mx-auto max-w-7xl rounded-[32px] border border-white/10 bg-[#061024]/80 p-10 shadow-[0_20px_70px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div>
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
+                A
               </div>
+              <h2 className="text-2xl font-semibold">Aivionix</h2>
             </div>
 
-            {/* Column 2 */}
-            <nav role="navigation" aria-label="Main menu">
-              <h3 className="text-white font-medium mb-6">Home</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#overview" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Overview</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">How it works</a></li>
-                <li><a href="#checker" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Message Checker</a></li>
-                <li><a href="#tips" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Safety tips</a></li>
-              </ul>
-            </nav>
-
-            {/* Column 3 */}
-            <nav role="navigation" aria-label="About navigation">
-              <h3 className="text-white font-medium mb-6">About us</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#mission" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Our mission</a></li>
-                <li><a href="#risk-analysis" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">How we detect risk</a></li>
-                <li><a href="#faq" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">FAQ</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Contact</a></li>
-              </ul>
-            </nav>
-
-            {/* Column 4 */}
-            <nav role="navigation" aria-label="User guide">
-              <h3 className="text-white font-medium mb-6">User guide</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#guide" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">How to use checker</a></li>
-                <li><a href="#risk-levels" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Risk levels explained</a></li>
-                <li><a href="#report" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Report false negative</a></li>
-                <li><a href="#privacy" className="hover:text-white transition-colors duration-300 block py-1 hover:pl-2 border-l-2 border-transparent hover:border-purple-400">Privacy policy</a></li>
-              </ul>
-            </nav>
-
-          </div>
-
-          {/* Copyright */}
-          <div className="border-t border-white/10 pt-12 mt-16 text-center">
-            <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-              &copy; 2024 <span className="font-semibold text-white">Aivionix</span>. All rights reserved. |
-              <a href="#privacy" className="hover:text-purple-400 underline transition-colors ml-1">Privacy Policy</a> |
-              <a href="#terms" className="hover:text-purple-400 underline transition-colors ml-1">Terms of Service</a>
+            <p className="max-w-sm leading-relaxed text-white/70">
+              Aivionix helps you quickly spot risky SMS, WhatsApp messages,
+              emails, and links — so your digital life stays safer without
+              slowing you down.
             </p>
+
+            <Link to="/chat">
+              <button className="mt-6 flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 font-medium shadow-lg shadow-purple-500/30 transition hover:scale-105">
+                Start Now <ArrowRight size={16} />
+              </button>
+            </Link>
+
+            <div className="mt-8">
+              <p className="mb-3 text-sm text-white/50">Follow us</p>
+              <div className="flex gap-3">
+                {socialLinks.map(({ icon: Icon, label }) => (
+                  <button
+                    key={label}
+                    aria-label={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10"
+                  >
+                    <Icon size={18} />
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="mb-5 text-lg font-semibold">{section.title}</h4>
+
+              <ul className="space-y-3 text-white/70">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    {link.id ? (
+                      <button
+                        onClick={() => scrollToSection(link.id)}
+                        className="text-left transition hover:text-white"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className="transition hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 md:flex-row">
+          <p>© 2024 Aivionix. All rights reserved.</p>
+
+          <div className="flex gap-6">
+            <Link to="/terms" className="hover:text-white">
+              Privacy Policy
+            </Link>
+
+            <Link to="/terms" className="hover:text-white">
+              Terms of Service
+            </Link>
+
+            <a
+              href="https://cybercrime.gov.in"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+            >
+              Cybercrime Support
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 }

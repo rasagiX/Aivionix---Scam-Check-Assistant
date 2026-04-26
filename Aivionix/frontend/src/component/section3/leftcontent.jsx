@@ -1,15 +1,33 @@
-import React from "react";
+const features = [
+  "Scans SMS, WhatsApp chats, emails, and suspicious links",
+  "Detects urgency tricks, fake rewards, KYC traps, and payment scams",
+  "Shows a simple risk result with beginner-friendly guidance",
+];
 
 const LeftContent = () => {
   return (
     <div className="left-content">
       <h2>Learn How We Protect You</h2>
-      <h4>See What Our Checker Does</h4>
+      <h4>See what our checker does</h4>
+
       <p>
-       “Our tool scans your SMS, WhatsApp chats, emails and links for urgent language, money requests and fake login pages. You get a simple risk level and clear advice—without sharing any sensitive details.”
+        Our tool reviews suspicious messages for the patterns scammers use most often.
+        Instead of showing technical jargon, it highlights what looks risky and explains
+        why in simple language.
       </p>
 
-      <button className="learn-btn">Learn More →</button>
+      <div className="feature-list">
+        {features.map((item) => (
+          <div key={item} className="feature-item">
+            <span className="feature-icon">✓</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+
+      <button className="learn-btn">
+        Learn More <span>→</span>
+      </button>
     </div>
   );
 };

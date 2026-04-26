@@ -1,48 +1,66 @@
 import React from "react";
-import { ShieldAlert, Lock, AlertTriangle, Radar, Shield } from "lucide-react";
+import { ShieldCheck, Link2, BellRing, Wallet, Mail, Smartphone } from "lucide-react";
+
+const miniCards = [
+  {
+    icon: <Link2 className="h-5 w-5 text-cyan-300" />,
+    title: "Link Scan",
+    text: "Detects suspicious redirects",
+    className: "top-2 left-8",
+  },
+  {
+    icon: <Wallet className="h-5 w-5 text-amber-300" />,
+    title: "Money Risk",
+    text: "Flags urgent payment tricks",
+    className: "top-10 right-2",
+  },
+  {
+    icon: <Mail className="h-5 w-5 text-violet-300" />,
+    title: "Phishing Check",
+    text: "Spots fake brand impersonation",
+    className: "bottom-24 left-0",
+  },
+  {
+    icon: <BellRing className="h-5 w-5 text-rose-300" />,
+    title: "Alert Signals",
+    text: "Finds pressure-based language",
+    className: "bottom-8 right-8",
+  },
+  {
+    icon: <Smartphone className="h-5 w-5 text-indigo-300" />,
+    title: "SMS Review",
+    text: "Reads common mobile scam patterns",
+    className: "left-1/2 bottom-0 -translate-x-1/2",
+  },
+];
 
 export default function Left() {
   return (
-    <div className="flex">
-      <div className="relative w-full aspect-square bg-gradient-to-br from-[#111827] to-[#1f2937] rounded-3xl p-12 shadow-2xl border border-purple-500/20 flex items-center justify-center overflow-hidden">
-        
-        {/* Glow Background */}
-        <div className="absolute inset-0 bg-purple-600/10 blur-3xl"></div>
+    <div className="relative mx-auto flex h-[560px] w-full max-w-[560px] items-center justify-center">
+      <div className="absolute h-[360px] w-[360px] rounded-full bg-violet-500/15 blur-3xl" />
+      <div className="absolute h-[240px] w-[240px] rounded-full bg-cyan-400/10 blur-3xl" />
 
-        {/* CENTER SHIELD */}
-        <div className="relative z-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-purple-500/40">
-          <ShieldAlert className="text-white w-14 h-14" />
-        </div>
+      <div className="absolute h-[420px] w-[420px] rounded-full border border-white/10" />
+      <div className="absolute h-[310px] w-[310px] rounded-full border border-violet-400/10" />
+      <div className="absolute h-[220px] w-[220px] rounded-full border border-cyan-300/10" />
 
-        {/* ORBIT WRAPPER */}
-        <div className="absolute inset-0 flex items-center justify-center orbit">
-          
-          <div className="relative w-[75%] h-[75%]">
-            
-            {/* Top */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2">
-              <Lock className="w-8 h-8 text-purple-400 counter-orbit" />
-            </div>
-
-            {/* Right */}
-            <div className="absolute top-1/2 right-0 -translate-y-1/2">
-              <AlertTriangle className="w-8 h-8 text-red-500 counter-orbit" />
-            </div>
-
-            {/* Bottom */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-              <Radar className="w-8 h-8 text-indigo-400 counter-orbit" />
-            </div>
-
-            {/* Left */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2">
-              <Shield className="w-8 h-8 text-purple-500 counter-orbit opacity-80" />
-            </div>
-
-          </div>
-        </div>
-
+      <div className="relative flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 shadow-[0_0_60px_rgba(139,92,246,0.35)]">
+        <div className="absolute inset-[10px] rounded-full border border-white/15 bg-black/10 backdrop-blur-md" />
+        <ShieldCheck className="relative z-10 h-14 w-14 text-white" />
       </div>
+
+      {miniCards.map((card) => (
+        <div
+          key={card.title}
+          className={`absolute w-[180px] rounded-[24px] border border-white/10 bg-white/[0.05] p-4 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)] ${card.className}`}
+        >
+          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-white/[0.06]">
+            {card.icon}
+          </div>
+          <h4 className="text-sm font-semibold text-white/90">{card.title}</h4>
+          <p className="mt-2 text-xs leading-6 text-white/60">{card.text}</p>
+        </div>
+      ))}
     </div>
   );
 }
